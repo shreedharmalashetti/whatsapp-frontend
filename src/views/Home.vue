@@ -1,18 +1,8 @@
 <template>
-  <div>home page</div>
-  <input type="text" v-model="message" />
-  <button @click="sendMessage(message)">send message</button>
+  <div class="text-center text-4xl">home page</div>
+  <div class="text-center">
+    <button @click="$router.push('/chats')" class="btn btn-pink">chats</button>
+  </div>
 </template>
 
-<script setup>
-import { ref } from "vue";
-import { sendMessage, receivedMessage } from "../store/index.js";
-
-const message = ref("type here");
-
-receivedMessage((msg) => {
-  console.log('received from server',msg);
-});
-
-
-</script>
+<script setup></script>
