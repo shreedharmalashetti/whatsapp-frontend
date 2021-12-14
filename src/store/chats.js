@@ -1,22 +1,34 @@
 import { reactive } from "vue";
+// const backendUrl = "http://localhost:8000/";
+const backendUrl = "https://socketiowhatsapp.herokuapp.com/";
 
 class Chats {
-  backendUrl = "https://socketiowhatsapp.herokuapp.com/";
   state = reactive({
-    chats: [
-      {
-        name: "shree",
-        id:123,
-        messagesCount: 100,
-      },
-      {
-        name: "shree",
-        id:123,
-        messagesCount: 100,
-      },
-    ],
+    chats: [],
   });
-  async getAllChats() {}
+
+  addChat(chat) {
+    let chatIndex = this.state.chats.findIndex(
+      (c) => c.id == chat.id && c.type == chat.type
+    );
+    if (chatIndex < 0) {
+      chatIndex = chatIndex =
+        this.state.chats.push({
+          id: chat.id,
+          name: chat.name,
+          type: chat.type,
+          messages: [],
+        }) - 1;
+    }
+
+    return chatIndex;
+  }
+
+  addMessage(chat, message) {
+    const chatIndex = this.addChat(chat);
+
+    this.state.chats[chatIndex].messages.push(message);
+  }
 }
 
 const chats = new Chats();
