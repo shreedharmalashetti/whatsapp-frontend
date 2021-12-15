@@ -4,7 +4,7 @@ import { user } from "./user.js";
 
 class Client {
   // backendUrl = "http://localhost:8000/";
-  backendUrl = "https://socketiowhatsapp.herokuapp.com/"
+  backendUrl = "https://socketiowhatsapp.herokuapp.com/";
   socket = null;
 
   constructor() {}
@@ -30,10 +30,13 @@ class Client {
         console.log("socket io disconnected");
       });
       this.socket.on("chats", (cs) => {
-        for (let c of cs) chats.addChat(c);
+        for (let c of cs) {
+          chats.addChat(c);
+        }
       });
-      this.socket.on("message", (chat, msg) => {
-        chats.addMessage(chat, msg);
+      this.socket.on("message", (fromChat, msg) => {
+        // console.log("incomming message", fromChat, msg);
+        chats.addMessage(fromChat, msg);
       });
     });
   }
@@ -60,6 +63,16 @@ class Client {
       });
     });
   }
+  async leaveChat(chat) {
+    return new Promise((resolve, reject) => {
+      if (!this.socket.connected) return;
+
+      this.socket.emit("leave", chat, () => {
+        chats.deleteChat(chat);
+        resolve();
+      });
+    });
+  }
 
   sendMessage(toChat, msg) {
     if (!this.socket.connected) return;
@@ -72,7 +85,6 @@ class Client {
       messageId: 123,
       message: msg,
     };
-
     chats.addMessage(toChat, message);
 
     this.socket.emit("message", toChat, message);

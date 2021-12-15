@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <button @click="$router.push('/chats')">chats</button>
-    <button @click="$router.push('/polls')">polls</button>
+  <div class="text-center p-10 space-x-4">
+    <button @click="$router.push('/chats')" class="btn btn-green">chats</button>
+    <button @click="$router.push('/polls')" class="btn btn-green">polls</button>
   </div>
 </template>
 

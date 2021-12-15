@@ -6,31 +6,37 @@
       </template>
       <template #center>
         <div class="flex justify-between space-x-20">
-          <a @click="chatsType = 'personal'" class="icon">Personal</a>
-          <a @click="chatsType = 'group'" class="icon">Group</a>
+          <button @click="chatsType = 'personal'" class="btn btn-pink">
+            Personal
+          </button>
+          <button @click="chatsType = 'group'" class="btn btn-pink">
+            Group
+          </button>
         </div>
       </template>
     </v-header>
 
-    <div class="bg-black p-2">
+    <div class="mt-2 space-y-2">
       <div v-for="(chat, i) in currentChats" :key="i">
         <div
+          v-if="chat.name"
           @click="$router.push(`/chat/${chatsType}/${chat.id}`)"
           class="
-            bg-blue-400
+            bg-gray-400
             rounded-full
             flex
             justify-between
+            items-center
             text-white
-            my-2
-            mx-2F
           "
         >
-          <div class="bg-pink-500 rounded-full text-4xl w-10 h-10 text-center">
-            {{ chat.name[0] }}
+          <div
+            class="bg-indigo-500 rounded-full text-4xl w-10 h-10 text-center"
+          >
+            {{ chat.name.toLocaleUpperCase()[0] }}
           </div>
-          <div class="text-2xl text-center">{{ chat.name }}  </div>
-          <div class="text-2xl px-2">Total: {{ chat.messages.length }}</div>
+          <div class="text-2xl text-center">{{ chat.name }}</div>
+          <div class="text-xl px-2">msg count: {{ chat.messages.length }}</div>
         </div>
       </div>
     </div>
@@ -39,7 +45,7 @@
 <script setup>
 import { computed, ref, onMounted } from "vue";
 import { chats } from "../store/chats.js";
-import { client } from "../store/index.js";
+import { client } from "../store/client.js";
 
 const chatsType = ref("personal");
 
