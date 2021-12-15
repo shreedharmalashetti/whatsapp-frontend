@@ -5,7 +5,7 @@
     </div>
   </v-modal>
 
-  <v-modal class="z-30" @click.self="$router.replace('/')">
+  <v-modal v-modal="$attrs" class="z-30" @click.self="$router.replace('/')">
     <form
       @submit.prevent="signup()"
       class="w-xs shadow space-y-2 bg-indigo-300 rounded"

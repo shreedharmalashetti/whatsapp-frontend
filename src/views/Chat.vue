@@ -13,7 +13,7 @@
     </div>
   </v-modal>
 
-  <div v-if="currentChat" class="flex flex-col justify-between h-full">
+  <div v-if="currentChat" class="flex flex-col justify-between inset-0 fixed container mx-auto max-w-2xl">
     <v-header class="bg-green-500">
       <template #left>
         <fa-icon @click="$router.go(-1)" icon="arrow-left" class="icon" />
@@ -65,7 +65,7 @@ const currentChat = computed(() => {
 
 watchEffect(
   () => {
-    if (!currentChat.value) return;
+    if (!(currentChat.value && currentChat.value.messages.length)) return;
     body.value.scrollTop = body.value.scrollHeight;
   },
   {
