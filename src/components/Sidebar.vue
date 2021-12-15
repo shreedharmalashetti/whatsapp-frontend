@@ -8,7 +8,7 @@
       z-30
     "
   >
-    <div class="bg-white h-full w-2/4  md:w-1/4">
+    <div class="bg-white h-full w-3/4  md:w-1/4">
       <slot></slot>
     </div>
   </div>
