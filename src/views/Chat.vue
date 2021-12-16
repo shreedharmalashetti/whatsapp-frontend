@@ -2,6 +2,7 @@
   <v-modal
     v-if="showChatInfo && currentChat"
     @click.self="showChatInfo = false"
+    class="z-40"
   >
     <div class="bg-white space-y-4 p-4">
       <div>name: {{ currentChat.name }}</div>
