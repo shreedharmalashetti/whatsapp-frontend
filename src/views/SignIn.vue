@@ -4,8 +4,8 @@
       <h1>{{ typeof isLoading == "string" ? isLoading : "loading..." }}</h1>
     </div>
   </v-modal>
-  
-  <v-modal v-model="$attrs" class="z-20" @click.self="$router.replace('/')">
+
+  <v-modal class="z-20" @click.self="$router.replace('/')">
     <form @submit.prevent="login()" class="w-xs shadow space-y-5 bg-indigo-300">
       <div class="px-2 text-2xl">
         <fa-icon @click="$router.replace('/')" icon="arrow-left" class="icon" />
