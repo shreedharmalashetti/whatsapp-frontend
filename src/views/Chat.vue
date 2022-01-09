@@ -20,7 +20,7 @@
         <fa-icon @click="$router.go(-1)" icon="arrow-left" class="icon" />
       </template>
       <template #center>
-        <div class="text-xl">{{ currentChat.name }}</div>
+        <div class="">{{ currentChat.name }}</div>
       </template>
       <template #right>
         <button @click="showChatInfo = true" class="btn btn-blue">info</button>
