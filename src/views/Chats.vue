@@ -5,13 +5,19 @@
         <fa-icon @click="$router.go(-1)" icon="arrow-left" class="icon" />
       </template>
       <template #center>
-        <div class="flex justify-between space-x-20">
-          <button @click="chatsType = 'personal'" class="btn btn-pink">
-            Personal
-          </button>
-          <button @click="chatsType = 'group'" class="btn btn-pink">
-            Group
-          </button>
+        <div
+          @click="chatsType = 'personal'"
+          :class="{ 'bg-indigo-500': chatsType == 'personal' }"
+          class="px-2 cursor-pointer"
+        >
+          Personal
+        </div>
+        <div
+          @click="chatsType = 'group'"
+          :class="{ 'bg-indigo-500': chatsType == 'group' }"
+          class="px-2 cursor-pointer"
+        >
+          Group
         </div>
       </template>
     </v-header>
@@ -21,22 +27,15 @@
         <div
           v-if="chat.name"
           @click="$router.push(`/chat/${chatsType}/${chat.id}`)"
-          class="
-            bg-gray-400
-            rounded-full
-            flex
-            justify-between
-            items-center
-            text-white
-          "
+          class="bg-gray-900 rounded-full flex justify-between items-center text-white"
         >
           <div
             class="bg-indigo-500 rounded-full text-4xl w-10 h-10 text-center"
           >
             {{ chat.name.toLocaleUpperCase()[0] }}
           </div>
-          <div class="text-2xl text-center">{{ chat.name }}</div>
-          <div class="text-xl px-2">msg count: {{ chat.messages.length }}</div>
+          <div class="text-md text-center">{{ chat.name }}</div>
+          <div class="text-md px-2 text-blue-500">{{ chat.messages.length }}</div>
         </div>
       </div>
     </div>
