@@ -9,9 +9,9 @@ import Header from "./components/Header.vue";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { faArrowLeft, faBars, faEye, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft, faBars, faInfoCircle, faUser } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faArrowLeft, faBars,faEye, faUser);
+library.add(faArrowLeft, faBars,faInfoCircle, faUser);
 
 const app = createApp(App);
 app.component("fa-icon", FontAwesomeIcon);

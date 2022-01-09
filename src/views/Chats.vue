@@ -2,20 +2,20 @@
   <div class="">
     <v-header class="bg-green-500">
       <template #left>
-        <fa-icon @click="$router.go(-1)" icon="arrow-left" class="icon" />
+        <fa-icon @click="$router.go(-1)" icon="arrow-left" class="icon text-xl" />
       </template>
       <template #center>
         <div
           @click="chatsType = 'personal'"
           :class="{ 'bg-indigo-500': chatsType == 'personal' }"
-          class="px-2 cursor-pointer"
+          class="px-2 cursor-pointer text-xl"
         >
           Personal
         </div>
         <div
           @click="chatsType = 'group'"
           :class="{ 'bg-indigo-500': chatsType == 'group' }"
-          class="px-2 cursor-pointer"
+          class="px-2 cursor-pointer text-xl"
         >
           Group
         </div>

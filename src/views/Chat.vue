@@ -14,20 +14,23 @@
     </div>
   </v-modal>
 
-  <div v-if="currentChat" class="flex flex-col justify-between inset-0 fixed container mx-auto max-w-2xl">
-    <v-header class="bg-green-500">
+  <div
+    v-if="currentChat"
+    class="flex flex-col justify-between inset-0 fixed container mx-auto max-w-2xl"
+  >
+    <v-header class="bg-gray-900">
       <template #left>
-        <fa-icon @click="$router.go(-1)" icon="arrow-left" class="icon" />
+        <fa-icon @click="$router.go(-1)" icon="arrow-left" class="icon text-xl" />
       </template>
       <template #center>
-        <div class="">{{ currentChat.name }}</div>
+        <div class="text text-center">{{ currentChat.name }}</div>
       </template>
       <template #right>
-        <button @click="showChatInfo = true" class="btn btn-blue">info</button>
+        <fa-icon @click="showChatInfo = true" icon="info-circle" class="icon text-xl" />
       </template>
     </v-header>
 
-    <div ref="body" class="bg-gray-300 overflow-y-auto h-full py-2">
+    <div ref="body" class="bg-gray-300 overflow-y-auto h-full py-2 space-y-2">
       <message
         v-for="(msg, i) in currentChat.messages"
         :key="i"

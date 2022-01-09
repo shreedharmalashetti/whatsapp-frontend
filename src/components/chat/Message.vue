@@ -12,18 +12,17 @@
     }"
     class="flex"
   >
-    <div class="w-3/4 p-2 flex items-end text-white">
-      <div
-        @click="showMessageInfo == true"
+    <div
+      class="w-3/4 p-1 flex items-center bg-gray-700 rounded-full text-white"
+    >
+      <a
+        @click="showMessageInfo=true"
         v-if="props.type == 'group' && !props.alignRight"
-        class="bg-pink-500 rounded-full text-4xl w-10 h-10 text-center"
+        class="bg-indigo-600 rounded-full text-4xl w-10 h-10 text-center cursor-pointer"
       >
         {{ props.fromName.toLocaleUpperCase()[0] }}
-      </div>
-      <div
-        :class="{ 'rounded-l-full': props.alignRight }"
-        class="bg-gray-500 w-full text-xl p-2 break-all rounded-r-full"
-      >
+      </a>
+      <div class="text-md p-2 break-all">
         {{ props.message }}
       </div>
     </div>

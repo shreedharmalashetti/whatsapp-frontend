@@ -18,7 +18,7 @@
         <div class="space-x-2 flex justify-between flex-wrap">
           <button
             @click="$router.replace('/updateuser'), (isSidebarOpen = false)"
-            class="btn btn-pink"
+            class="btn btn-green"
           >
             update
           </button>
@@ -27,8 +27,8 @@
       </div>
 
       <div class="flex justify-between flex-wrap p-2">
-        <button @click="joinChat()" class="btn btn-green">join</button>
-        <button @click="createChat()" class="btn btn-green">create</button>
+        <button @click="joinChat()" class="btn btn-blue">join</button>
+        <button @click="createChat()" class="btn btn-blue">create</button>
       </div>
     </div>
 
@@ -50,21 +50,19 @@
   </v-sidebar>
 
   <div
-    class="
-      container
-      mx-auto
-      max-w-2xl
-      fixed
-      inset-0
-      flex flex-col
-      justify-between
-    "
+    class="container mx-auto max-w-2xl fixed inset-0 flex flex-col justify-between"
   >
-    <v-header class="bg-indigo-500">
+    <v-header class="bg-indigo-900">
       <template #left>
-        <fa-icon @click="isSidebarOpen = true" icon="bars" class="icon" />
+        <fa-icon
+          @click="isSidebarOpen = true"
+          icon="bars"
+          class="icon text-xl"
+        />
       </template>
-      <template #center>Chat App </template>
+      <template #center>
+        <div class="text-xl ">Chat App</div>
+      </template>
     </v-header>
     <div class="h-full">
       <router-view></router-view>
